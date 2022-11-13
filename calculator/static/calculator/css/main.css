@@ -86,14 +86,15 @@ form {
 .submit-btn {
     width: 3rem;
     height: 3rem;
-    filter: invert(70%);
-    color: #fff;
+    /* filter: invert(70%); */
+    background: #5647ae;
+    border-radius: 50%;
     margin: 0.5rem;
     padding: 0;
 }
-.submit-btn:active{
+/* .submit-btn:active{
     filter: invert(100);
-}
+} */
 
 .inp-container>img {
     padding: 0;

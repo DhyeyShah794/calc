@@ -29,8 +29,6 @@ SECRET_KEY = 'django-insecure-ehxkb7*94znca%xy7xnzcw7$8go2@s1n+9o)jn3q6q86)uqz5*
 DEBUG = False
 
 ALLOWED_HOSTS = ['limitless-math.herokuapp.com', '127.0.0.1']
-# ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -124,8 +122,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
-# django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
