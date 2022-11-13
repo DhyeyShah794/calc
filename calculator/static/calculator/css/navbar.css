@@ -17,6 +17,10 @@ nav {
     z-index: 1;
 }
 
+a {
+    font-family: 'Arial', sans-serif;
+}
+
 .nav-link {
     font-size: 1.2rem;
     font-weight: 500;
@@ -24,11 +28,6 @@ nav {
     padding: 0rem;
     margin: 0rem;
 }
-
-/* .nav-link:hover {
-    cursor: pointer !important;
-    background-color: black;
-} */
 
 .d-flex {
     position: absolute;
@@ -38,12 +37,4 @@ nav {
     justify-content: right;
     align-items: center;
     cursor: pointer;
-}
-
-#search-box {
-    width: 12rem;
-}
-
-.search-icon {
-    margin-left: 1rem !important;
 }

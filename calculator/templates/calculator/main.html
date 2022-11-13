@@ -13,7 +13,7 @@
                     {% csrf_token %}
                     <div>
                         <p class="tooltip" style="display:none">Accuracy</p>
-                        <input type="number" id="accuracy" name="accuracy" placeholder="Acc." value="{{accuracy}}" min="0" oninput="validity.valid||(value='');"/>
+                        <input type="number" id="accuracy" name="accuracy" placeholder="Digits" value="{{accuracy}}" min="0" oninput="validity.valid||(value='');"/>
                     </div>
                     <input type="text" id="inp" name="display" value="{{result}}" autofocus/>
                     <input type="image" class="submit-btn" src="{% static 'images/arrow-right-circle.svg' %}"
@@ -185,41 +185,10 @@
                         <button class="const-btn" onclick="constE()">e</button>
                         <button class="const-btn" onclick="constPhi()">φ</button>
                         <button class="const-btn" onclick="constApery()">ζ(3)</button>
-                        <!-- <button class="const-btn" onclick="constFeigenbaum1()">α</button> -->
-                        <!-- <button class="const-btn" onclick="constFeigenbaum2()">δ</button> -->
-                        <!-- <button class="const-btn" onclick="constEulerMascheroni()">γ</button> -->
-                        <!-- <button class="const-btn" onclick="constConway()">const_conway</button> -->
                         <button class="const-btn" onclick="constKhinchin()">const_khinchin</button>
                         <button class="const-btn" onclick="constGlaisherKinkelin()">A</button>
-                        <!-- <button class="const-btn" onclick="constChampernowne()">C<sub>10</sub></button> -->
-
                         <button class="const-btn" onclick="constMeisselMertens()">M<sub>1</sub></button>
-                        <!-- <button class="const-btn" onclick="constBernstein()">β</button> -->
-                        <!-- <button class="const-btn" onclick="constGaussKuzminWirsing()">λ</button> -->
-                        <!-- <button class="const-btn" onclick="constHafnerSarnakMcCurley()">σ</button> -->
-                        <!-- <button class="const-btn" onclick="constOmega()">Ω</button> -->
-                        <!-- <button class="const-btn" onclick="constGolombDickman()"></button> -->
-                        <!-- <button class="const-btn" onclick="constCahen()">const_cahen</button> -->
                         <button class="const-btn" onclick="constTwinPrime()">C<sub>2</sub></button>
-                        <!-- <button class="const-btn" onclick="constLaplaceLimit()">LL</button> -->
-
-                        <!-- <button class="const-btn" onclick="constEmbreeTrefethen()">β<sup>*</sup></button> -->
-                        <!-- <button class="const-btn" onclick="constLandauRamanujan()">K</button> -->
-                        <!-- <button class="const-btn" onclick="constBrunQuad()">B<sub>4</sub></button> -->
-                        <!-- <button class="const-btn" onclick="constCatalan()">G</button> -->
-                        <!-- <button class="const-btn" onclick="constViswanath()">const_viswanath</button> -->
-                        <!-- <button class="const-btn" onclick="constMill()">θ</button> -->
-                        <!-- <button class="const-btn" onclick="constPlastic()">ρ</button> -->
-                        <!-- <button class="const-btn" onclick="constRamanujanSoldner()">µ</button> -->
-                        <!-- <button class="const-btn" onclick="constErdosBorwein()">E<sub>B</sub></button> -->
-
-                        <!-- <button class="const-btn" onclick="constNiven()">C</button> -->
-                        <!-- <button class="const-btn" onclick="constBrunTwin()">B<sub>2</sub></button> -->
-                        <!-- <button class="const-btn" onclick="constUniversalParabolic()">P<sub>2</sub></button> -->
-                        <!-- <button class="const-btn" onclick="constSierpinski()">const_sierpinski</button> -->
-                        <!-- <button class="const-btn" onclick="constFransenRobinson()">F</button> -->
-                        <!-- <button class="const-btn" onclick="constLevy()">const_levy</button> -->
-                        <!-- <button class="const-btn" onclick="constReciprocalFibonacci()">Ψ</button> -->
                     </div>
 
 

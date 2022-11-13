@@ -5,21 +5,18 @@
     font-family: 'Barlow', sans-serif;
 }
 
-/* nav {
-    position: fixed;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.511) !important;
-    height: 10vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    z-index: 1;
-} */
+a {
+    font-family: 'Arial', sans-serif;
+    
+}
+
+#nav-ul {
+    margin: 0;
+    letter-spacing: 0rem;
+}
 
 body {
-    background: #131516;
+    background: #0f0d1c; 
     color: #d8d4cf;
     letter-spacing: 0.08rem;
 }
@@ -69,5 +66,3 @@ p{
 ::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
 }
-
-@media screen and max-width 
