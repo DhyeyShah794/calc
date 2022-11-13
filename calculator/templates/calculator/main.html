@@ -1,0 +1,364 @@
+{% extends 'calculator/navbar.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculator/css/main.css' %}">
+<div class="content">
+
+    <section class="calc-container" id="res">
+
+        <div class="calc">
+            <div class="exp">{{exp}}</div>
+            <div class="inp-container">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="number" id="accuracy" name="accuracy" value="{{accuracy}}" min="0" oninput="validity.valid||(value='');"/>
+                    <input type="text" id="inp" name="display" value="{{result}}" autofocus/>
+                    <input type="image" class="submit-btn" src="{% static 'images/arrow-right-square.svg' %}"
+                        alt="Evaluate" />
+                </form>
+
+            </div>
+            <div class="tabs">
+                <button class="tablinks" onclick="openTab('basic')">Basic</button>
+                <button class="tablinks" onclick="openTab('trig')">Trigonometry</button>
+                <button class="tablinks" onclick="openTab('constants')">Constants</button>
+                <button class="tablinks" onclick="openTab('calculus')">Calculus</button>
+                <button class="tablinks" onclick="openTab('stats')">Statistics</button>
+                <button class="tablinks" onclick="openTab('transforms')">Transforms</button>
+                <button class="tablinks" onclick="openTab('advanced')">Advanced functions</button>
+            </div>
+            <div class="tab-content">
+                <div id="basic" style="display: none">
+                    <table id="t-basic-1">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="btn-basic-toggle" type="button" onclick="toggleBasic()"><img src="{% static 'images/toggle-off.svg' %}"></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-basic" type="button" onclick="buttonOne()">1</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonTwo()">2</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonThree()">3</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonPlus()">+</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonMinus()">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-basic" type="button" onclick="buttonFour()">4</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonFive()">5</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonSix()">6</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonMultiply()">X</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonDivide()">/</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><button class="btn-basic" type="button" onclick="buttonSeven()">7</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonEight()">8</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonNine()">9</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonSquare()">x<sup>2</sup></button>
+                            </td>
+                            <td><button class="btn-basic" type="button" onclick="buttonPower()">x<sup>y</sup></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-basic" type="button" onclick="buttonDecimal()">.</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonZero()">0</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonRoot()">√x</button>
+                            <td><button class="btn-basic" type="button" onclick="buttonOpen()">(</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonClose()">)</button></td>
+                        </tr>
+                    </table>
+
+                    <table id="t-basic-2">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="btn-basic-toggle" type="button" onclick="toggleBasic()"><img src="{% static 'images/toggle-on.svg' %}"></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-basic" type="button" onclick="buttonOne()">1</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonTwo()">2</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonThree()">3</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonPlus()">+</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonMinus()">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-basic" type="button" onclick="buttonFour()">4</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonFive()">5</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonSix()">6</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonMultiply()">X</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonDivide()">/</button></td>
+                        </tr>
+
+                        <tr>
+                            <td><button class="btn-basic" type="button" onclick="buttonSeven()">7</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonEight()">8</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonNine()">9</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonFactorial()">x!</button></td>
+                            </td>
+                            <td><button class="btn-basic" type="button" onclick="buttonPower10()">10<sup>x</sup></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-basic" type="button" onclick="buttonDecimal()">.</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonZero()">0</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonLogE()">ln(x)</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonLog10()">log(x)</button></td>
+                            <td><button class="btn-basic" type="button" onclick="buttonExp()">exp()</button></td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div id="trig" style="display: none">
+                    <table class="t-trig" id="trig-table-1">
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonPi()">π</button></td>
+                            <td><button class="btn-trig" type="button" onclick="toggleAngle()">DEG</button></td>
+                            <td><button class="btn-trig-toggle" type="button" onclick="toggleTrig()"><img src="{% static 'images/toggle-off.svg' %}"></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonSin()">sin</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonCos()">cos</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonTan()">tan</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonAsin()">sin<sup>-1</sup></button>
+                            </td>
+                            <td><button class="btn-trig" type="button" onclick="buttonAcos()">cos<sup>-1</sup></button>
+                            </td>
+                            <td><button class="btn-trig" type="button" onclick="buttonAtan()">tan<sup>-1</sup></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonSinh()">sinh</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonCosh()">cosh</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonTanh()">tanh</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonAsinh()">asinh</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonAcosh()">acosh</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonAtanh()">atanh</button></td>
+                        </tr>
+                    </table>
+                    <table class="t-trig" id="trig-table-2">
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonPi()">π</button></td>
+                            <td><button class="btn-trig" type="button" onclick="toggleAngle()">RAD</button></td>
+                            <td><button class="btn-trig-toggle" type="button" onclick="toggleTrig()"><img src="{% static 'images/toggle-on.svg' %}"></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonCot()">cot</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonSec()">sec</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonCosec()">cosec</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonAcot()">cot<sup>-1</sup></button>
+                            </td>
+                            <td><button class="btn-trig" type="button" onclick="buttonAsec()">sec<sup>-1</sup></button>
+                            </td>
+                            <td><button class="btn-trig" type="button" onclick="buttonAcosec()">cosec<sup>-1</sup></button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonCoth()">coth</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonSech()">sech</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonCosech()">cosech</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-trig" type="button" onclick="buttonAcoth()">acoth</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonAsech()">asech</button></td>
+                            <td><button class="btn-trig" type="button" onclick="buttonAcosech()">acosech</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="constants" style="display: none">
+                    <div class="dropdown-buttons">
+                        <button class="drop-btn" onclick="constDropdown('math-dropdown-content')">Mathematical</button>
+                        <button class="drop-btn" onclick="constDropdown('physics-dropdown-content')">Physical</button>
+                    </div>
+                    <div class="dropdown-content" id="math-dropdown-content" style="display: none">
+                        <button class="const-btn" onclick="constPi()">π</button>
+                        <button class="const-btn" onclick="constE()">e</button>
+                        <button class="const-btn" onclick="constPhi()">φ</button>
+                        <button class="const-btn" onclick="constApery()">ζ(3)</button>
+                        <!-- <button class="const-btn" onclick="constFeigenbaum1()">α</button> -->
+                        <!-- <button class="const-btn" onclick="constFeigenbaum2()">δ</button> -->
+                        <!-- <button class="const-btn" onclick="constEulerMascheroni()">γ</button> -->
+                        <!-- <button class="const-btn" onclick="constConway()">const_conway</button> -->
+                        <button class="const-btn" onclick="constKhinchin()">const_khinchin</button>
+                        <button class="const-btn" onclick="constGlaisherKinkelin()">A</button>
+                        <!-- <button class="const-btn" onclick="constChampernowne()">C<sub>10</sub></button> -->
+
+                        <button class="const-btn" onclick="constMeisselMertens()">M<sub>1</sub></button>
+                        <!-- <button class="const-btn" onclick="constBernstein()">β</button> -->
+                        <!-- <button class="const-btn" onclick="constGaussKuzminWirsing()">λ</button> -->
+                        <!-- <button class="const-btn" onclick="constHafnerSarnakMcCurley()">σ</button> -->
+                        <!-- <button class="const-btn" onclick="constOmega()">Ω</button> -->
+                        <!-- <button class="const-btn" onclick="constGolombDickman()"></button> -->
+                        <!-- <button class="const-btn" onclick="constCahen()">const_cahen</button> -->
+                        <button class="const-btn" onclick="constTwinPrime()">C<sub>2</sub></button>
+                        <!-- <button class="const-btn" onclick="constLaplaceLimit()">LL</button> -->
+
+                        <!-- <button class="const-btn" onclick="constEmbreeTrefethen()">β<sup>*</sup></button> -->
+                        <!-- <button class="const-btn" onclick="constLandauRamanujan()">K</button> -->
+                        <!-- <button class="const-btn" onclick="constBrunQuad()">B<sub>4</sub></button> -->
+                        <!-- <button class="const-btn" onclick="constCatalan()">G</button> -->
+                        <!-- <button class="const-btn" onclick="constViswanath()">const_viswanath</button> -->
+                        <!-- <button class="const-btn" onclick="constMill()">θ</button> -->
+                        <!-- <button class="const-btn" onclick="constPlastic()">ρ</button> -->
+                        <!-- <button class="const-btn" onclick="constRamanujanSoldner()">µ</button> -->
+                        <!-- <button class="const-btn" onclick="constErdosBorwein()">E<sub>B</sub></button> -->
+
+                        <!-- <button class="const-btn" onclick="constNiven()">C</button> -->
+                        <!-- <button class="const-btn" onclick="constBrunTwin()">B<sub>2</sub></button> -->
+                        <!-- <button class="const-btn" onclick="constUniversalParabolic()">P<sub>2</sub></button> -->
+                        <!-- <button class="const-btn" onclick="constSierpinski()">const_sierpinski</button> -->
+                        <!-- <button class="const-btn" onclick="constFransenRobinson()">F</button> -->
+                        <!-- <button class="const-btn" onclick="constLevy()">const_levy</button> -->
+                        <!-- <button class="const-btn" onclick="constReciprocalFibonacci()">Ψ</button> -->
+                    </div>
+
+
+
+                    <div class="dropdown-content" id="physics-dropdown-content" style="display: none">
+                        <button class="const-btn" onclick="constGravity()">G</button>
+                        <button class="const-btn" onclick="constPlanck()">h</button>
+                        <button class="const-btn" onclick="constMassE()">m<sub>e</sub></button>
+                        <button class="const-btn" onclick="constMassP()">m<sub>p</sub></button>
+                        <button class="const-btn" onclick="constMassN()">m<sub>n</sub></button>
+                        <button class="const-btn" onclick="constSpeedLight()">c</button>
+                        <button class="const-btn" onclick="constHBar()">ℏ</button>
+                        <button class="const-btn" onclick="constBoltzmann()">K<sub>b</sub></button>
+                        <button class="const-btn" onclick="constAvogadro()">N<sub>A</sub></button>
+                        <button class="const-btn" onclick="constEpsilon()">ε<sub>0</sub></button>
+                        <button class="const-btn" onclick="constUnitCharge()">q<sub>e</sub></button>
+                        <button class="const-btn" onclick="constRydberg()">R<sub>∞</sub></button>
+                        <button class="const-btn" onclick="constFaraday()">F</button>
+                        <button class="const-btn" onclick="constGas()">R</button>
+
+                    </div>
+                </div>
+
+                <div id="calculus" style="display: none">
+                    <table>
+                        <tr>
+                            <td><button class="btn-calc" type="button" onclick="buttonDiff()">d/dx</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonInteg()">∫</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonLimit()">lim</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonBeta()">β(m, n)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonGamma()">Γ(x)</button></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="stats" style="display: none">
+                    <table>
+                        <tr>
+                            <td><button class="btn-stats" type="button" onclick="buttonMean()">mean()</button></td>
+                            <td><button class="btn-stats" type="button" onclick="buttonMedian()">median()</button></td>
+                            <td><button class="btn-stats" type="button" onclick="buttonMode()">mode()</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-stats" type="button" onclick="buttonStdev()">stdev()</button></td>
+                            <td><button class="btn-stats" type="button" onclick="buttonVariance()">var()</button></td>
+                            <td><button class="btn-stats" type="button" onclick="buttonCovariance()">cov()</button></td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div id="advanced" style="display: none">
+                    <table class="advanced-table">
+                        <tr>
+                            <td><button class="btn-calc" type="button" onclick="buttonGeneralLog()">log(x, base)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonFactorial()">fac(x)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonSuperfac()">superfac(x)</td>
+                            <td><button class="btn-calc" type="button" onclick="buttonHyperfac()">hyperfac(x)</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-calc" type="button" onclick="buttonBessel()">bessel(n, x)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonLegendre()">legendre(n, x)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonHankel1()">hankel<sup>1</sup>(n, x)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonHankel2()">hankel<sup>2</sup>(n, x)</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn-calc" type="button" onclick="buttonBer()">ber(n, x)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonBei()">bei(n, x)</td>
+                            <td><button class="btn-calc" type="button" onclick="buttonKer()">ker(n, x)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonKei()">kei(n, x)</button></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="transforms" style="display: none">
+                    <table>
+                        <tr>
+                            <td><button class="btn-calc" type="button" onclick="buttonLaplace()">L(t)</button></td>
+                            <td><button class="btn-calc" type="button"
+                                    onclick="buttonInvLaplace()">L<sup>-1</sup>(s)</button></td>
+                            <td><button class="btn-calc" type="button" onclick="buttonFourier()">F(s)</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="one">
+        <h1>Limitless Math</h1>
+        <p>Do unlimited, ultimate, mind-blowingly fast maths!</p>
+        <div class="get-started-button"><button type="button" onclick=""><a href="#res">Get Started</a></button></div>
+    </section>
+
+    <section class="two">
+        <h1>Basic Maths</h1>
+        <p>Calculator for basic mathematics.</p>
+        <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
+    </section>
+
+    <section class="three">
+        <h1>Trigonometry</h1>
+        <p>Trigonometric functions, inverse trigonometric functions, hyperbolic functions in degrees & radians</p>
+        <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
+    </section>
+
+    <section class="four">
+        <h1>Calculus</h1>
+        <p>Derivatives, integrals, differential equation solver, double & triple integral solver, beta & gamma functions
+        </p>
+        <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
+    </section>
+
+    <section class="five">
+        <h1>Geometry</h1>
+        <p>Calculate area, perimeter, volume, tangents, normals, etc. of various 2D & 3D figures and plot them
+            graphically using equations or direct measurements</p>
+        <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
+    </section>
+
+    <section class="six">
+        <h1>Probability & Statistics</h1>
+        <p>Mean, Median, Mode, Variance, Standard Deviation</p>
+        <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
+    </section>
+
+    <section class="seven">
+        <h1>Sequences & Series</h1>
+        <p>Arithmetic, geometric & harmonic series, n-bonacci sequences, series generator using initial seeds and
+            conditions</p>
+        <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
+    </section>
+
+    <section class="eight">
+        <h1>Advance functions & Transforms</h1>
+        <p>Laplace Transform, Inverse Laplace Transform, Fourier Transform, Shanks Transform</p>
+        <div class="get-started-button">
+            <button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button>
+        </div>
+    </section>
+
+</div>
+<script type="text/javascript" src="{% static 'calculator/js/main.js' %}"></script>
+{% endblock %}

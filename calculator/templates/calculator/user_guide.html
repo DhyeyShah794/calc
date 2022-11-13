@@ -1,0 +1,128 @@
+{% extends 'calculator/navbar.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculator/css/user_guide.css' %}">
+
+<body>
+    <h1 class="page-heading">User Guide for using the calculator</h1>
+    <ul>
+        <li>
+            <h2>Limits</h2>
+            <ul>
+                <h3>General form : lim(function, variable, limit, side)</h3>
+                <h4>*The side parameter is optional. Use '+' and '-' when approaching the limit from right and left respectively.</h4>
+                <h3>Example : lim(cosx/x, x, 0, '-')</h3>
+                <p>This will evaluate left hand limit of the function 'cosx/x' when x→0<sup>-</sup></p>
+                <h3>Example : lim(sinx/x, x, 0)</h3>
+                <p>This will evaluate the limit of the function 'sinx/x' when x→0.</p>
+            </ul>
+        </li>
+        <br>
+        <li>
+            <h2>Differentiation</h2>
+            <ul>
+                <h3>General form : diff(function, variable, n<sup>th</sup> derivative)</h3>
+                <h3>Example : diff(3x^2 - xy, x, 1)</h3>
+                <p>This will evaluate the first derivative of the function '3x^2 - xy' with respect to 'x'.</p>
+                <h3>Example : diff(2xy^2 - x^y, x, 4)</h3>
+                <p>This will evaluate the fourth derivative of the function '2xy^2 - x^y' with respect to 'x'.</p>
+            </ul>
+        </li>
+        <br>
+        <li>
+            <h2>Integration</h2>
+            <ul>
+                <li>
+                    <h2>Single Integration</h2>
+                    <ul>
+                        <h3>General form : ∫ (function, variable, lower limit, upper limit)</h3>
+                        <h4>*The lower and upper limit parameters are optional. </h4>    
+                        <h3>Example : ∫ (2x^3 - 3*sin4x, x, -1, 1)</h3>
+                        <p>This will integrate the function '2x^3 - 3*sin4x' with respect to 'x' under the limit -1 to 1.</p>
+                        <h3>Example : ∫ (x^7 - 3^x, x)</h3>
+                        <p>This will integrate the function 'x^7 - 3^x' with respect to 'x'.</p>
+                    </ul>
+                </li>
+                <!-- <br> -->
+                <li>
+                    <h2>Double Integration</h2>
+                    <ul>
+                        <h3>General form : ∫ (function, (variable-1, lower limit, upper limit), (variable-2, lower limit, upper limit))</h3>
+                        <h4>*The lower and upper limit parameters are optional.</h4>
+                        <h3>Example : ∫ (x^4 - 3^y, (x, -2, 2), (y, 3, 6))</h3>
+                        <p>This will integrate the function 'x^4 -3^y' first with respect to 'x' under the limit -2 to 2 and then again integrate with respect to 'y' in the range 3 to 6.</p>
+                        <h3>Example : ∫ (7^x - log(xy), (x), (y))</h3>
+                        <p>This will integrate the function '7^x - log(xy)' with first with respect to 'x' then with respect to 'y'.</p>
+                    </ul>
+                </li>
+                <!-- <br> -->
+                <li>
+                    <h2>Triple Integration</h2>
+                    <ul>    
+                        <h3>General form : ∫ (function, (variable-1, lower limit, upper limit), (variable-2, lower limit, upper limit), (variable-3, lower limit, upper limit))</h3>
+                        <h4>*The lower and upper limit parameters are optional.</h4>
+                        <h3>Example : ∫ (x^2 + y^2 - z^2, (x, -1, 1), (y, -x, x), (z, y, 2*y))</h3>
+                        <p>This will integrate the function 'x^2 + y^2 - z^2' first with respect to 'x' under the limit -1 to 1 then with respect to 'y' under the limit -x to x and then with respect to 'z' under the limit y to 2y.</p>
+                        <h3>Example : ∫ (log(3x-2) + siny^2 - 2^z, (x), (y), (z))</h3>
+                        <p>This will integrate the function 'log(3x-2) + siny^2 - 2^z' first with respect to 'x' then with respect to 'y' and then with respect to 'z'.</p>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+        </li>
+        <li>
+            <h2>Beta and Gamma functions</h2>
+            <ul>
+                <li>
+                    <h2>Beta function</h2>
+                    <ul>
+                        <h3>General form : β(m,n)</h3>
+                        <h3>Example : β(5/2, 3/2)</h3>
+                        <p>This will calculate the value of beta function when m = 5/2 and n = 3/2.</p>
+                    </ul>
+                </li>
+                <li>
+                    <h2>Gamma function</h2>
+                    <ul>
+                        <h3>General form : Γ(n)</h3>
+                        <h3>Example : Γ(5)</h3>
+                        <p>This will calculate the gamma of 5.</p>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h2>Transforms</h2>
+            <ul>
+                <li>
+                    <h2>Laplace Transform</h2>
+                    <ul>
+                        <h3>General form : L(function)</h3>
+                        <h3>Example : L(t^5 - t^2)</h3>
+                        <p>This will perform Laplace Transform on the function 't^5 - t^2'.</p>
+                    </ul>
+                </li>
+                <li>
+                    <h2>Inverse Laplace Transform</h2>
+                    <ul>
+                        <h3>General form : L_inv(function)</h3>
+                        <h3>Example : L_inv(s^-3 - s^2)</h3>
+                        <p>This will perform the Inverse Laplace Transform on the function 's^-3 - s^2'.</p>
+                    </ul>
+                </li>
+                <li>
+                    <h2>Fourier Transform</h2>
+                    <ul>
+                        <h3>General form : fourier_series(function, (variable, lower limit, upper limit))</h3>
+                        <h3>Example : fourier_series(x^2, (x, -1, 1))</h3>
+                        <p>This will return the Fourier Series of the function 'x^2' with respect to x under the limit -1 to 1.</p>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+<script type="text/javascript" src="{% static 'calculator/js/user_guide.js' %}"></script>
+{% endblock %}

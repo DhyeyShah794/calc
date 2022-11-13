@@ -1,0 +1,80 @@
+{% extends 'calculator/navbar.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculator/css/trigonometry.css' %}">
+
+    <div>
+        <h1 class="calc-heading">Trigonometry</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="table-container">
+                <input type="text" id="inp" name="display" value="{{result}}"/>
+                <table class="calc-table">
+                    <caption></caption>
+                    <tr>
+                        <td><button type="button" onclick="buttonSin()">sin</button></td>
+                        <td><button type="button" onclick="buttonCos()">cos</button></td>
+                        <td><button type="button" onclick="buttonTan()">tan</button></td>
+                        <td><button type="button" onclick="buttonState()">Rad</button></td>
+                        <td><button type="button" onclick="buttonDel()">Del</button></td>
+                        <td><button type="button" onclick="buttonClear()">AC</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonCosec()">cosec</button></td>
+                        <td><button type="button" onclick="buttonSec()">sec</button></sup></td>
+                        <td><button type="button" onclick="buttonCot()">cot</button></td>
+                        <td><button type="button" onclick="buttonPlus()">+</button></td>
+                        <td><button type="button" onclick="buttonMinus()">-</button></td>
+                        <td><button type="button" onclick="buttonMultiply()">*</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonAsin()">asin</button></td>
+                        <td><button type="button" onclick="buttonAcos()">acos</button></td>
+                        <td><button type="button" onclick="buttonAtan()">atan</button></td>
+                        <td><button type="button" onclick="buttonDivide()">/</button></td>
+                        <td><button type="button" onclick="buttonOpenBracket()">(</button></td>
+                        <td><button type="button" onclick="buttonCloseBracket()">)</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonAcosec()">acosec</button></td>
+                        <td><button type="button" onclick="buttonAsec()">asec</button></td>
+                        <td><button type="button" onclick="buttonAcot()">acot</button></td>
+                        <td><button type="button" onclick="buttonSeven()">7</button></td>
+                        <td><button type="button" onclick="buttonEight()">8</button></td>
+                        <td><button type="button" onclick="buttonNine()">9</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonSinh()">sinh</button></td>
+                        <td><button type="button" onclick="buttonCosh()">cosh</button></td>
+                        <td><button type="button" onclick="buttonTanh()">tanh</button></td>
+                        <td><button type="button" onclick="buttonFour()">4</button></td>
+                        <td><button type="button" onclick="buttonFive()">5</button></td>
+                        <td><button type="button" onclick="buttonSix()">6</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonCosech()">cosech</button></td>
+                        <td><button type="button" onclick="buttonSech()">sech</button></td>
+                        <td><button type="button" onclick="buttonCoth()">coth</button></td>
+                        <td><button type="button" onclick="buttonOne()">1</button></td>
+                        <td><button type="button" onclick="buttonTwo()">2</button></td>
+                        <td><button type="button" onclick="buttonThree()">3</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonLog()">log(x)</button></td>
+                        <td><button type="button" onclick="buttonPower()">pow()</button></td>
+                        <td><button type="button" onclick="buttonPi()">π</button></td>
+                        <td><button type="button" onclick="buttonDecimal()">.</button></td>
+                        <td><button type="button" onclick="buttonZero()">0</button></td>
+                        <td><button>=</button></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+        </form>
+    </div>
+
+
+
+<script type="text/javascript" src="{% static 'calculator/js/trigonometry.js' %}"></script>
+{% endblock %}

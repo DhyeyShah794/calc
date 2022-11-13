@@ -1,0 +1,360 @@
+.content {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 90vh;
+    color: white;
+}
+
+section {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    scroll-snap-align: start;
+    text-align: center;
+}
+
+
+.calc-container {
+    background: #065c81;
+    display: block;
+}
+
+.calc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 7rem;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.exp {
+    margin-top: 3rem;
+    margin-bottom: -5rem;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#accuracy {
+    width: 5.6rem;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 650;
+    margin-right: 0.5rem;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+#inp {
+    width: 70%;
+    height: 3rem;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0;
+    caret-color: red;
+}
+
+.test-text {
+    resize: none;
+    font-size: 0.8rem;
+    height: 3rem;
+    min-width: 2rem;
+    max-width: 4rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.submit-btn {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px;
+    background: lightgreen;
+    color: #fff;
+    margin: 0.5rem;
+    padding: 0;
+}
+
+.inp-container>img {
+    padding: 0;
+    margin: 0;
+    height: 5rem !important;
+    width: 5rem !important;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-top: 1rem;
+}
+
+.tablinks {
+    padding: 0.6rem;
+    width: auto;
+    height: auto;
+    font-size: 1.2rem;
+}
+
+.tab-content {
+    width: 100%;
+    height: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 70%;
+    margin-top: 0.7rem;
+}
+
+button:not(.tablinks) {
+    width: 5.5rem;
+    height: 3.5rem;
+    margin: 0.01rem;
+    background-color: #13122a00;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.532);
+    border-radius: 3px;
+}
+
+button:not(.tablinks):hover {
+    border: 1px solid white;
+    transition: border 0.4s;
+}
+
+button:not(.tablinks):active {
+    border-color: #ff0000;
+}
+
+.btn-basic {
+    width: 5rem;
+}
+
+#t-basic-2,
+#trig-table-2 {
+    display: none;
+}
+
+.btn-basic-toggle {
+    width: 5rem;
+    border: 1px solid rgba(255, 255, 255, 0) !important;
+}
+
+.toggle-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.t-trig {
+    margin-top: 2.5rem;
+}
+
+.btn-trig,
+.btn-trig-toggle {
+    width: 5.5rem;
+}
+
+.btn-basic-toggle>img,
+.btn-trig-toggle>img {
+    width: 80%;
+    height: 80%;
+}
+
+@media screen and (max-width:410px),
+(max-height:410px) {
+    section h1 {
+        font-size: 3rem;
+        margin-top: 1.7rem;
+    }
+
+    section p {
+        font-size: 1.4rem;
+        margin: 1.4rem;
+    }
+
+    section button {
+        height: 4rem;
+        width: 8rem;
+        font-size: 1.3rem;
+        border: none;
+        border-radius: 7px;
+        margin: 1rem;
+        border: 1px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0.3rem;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #748b97;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media screen and (min-height:410px) and (min-width:410px) {
+    section h1 {
+        font-size: 4rem;
+        margin-top: 1.7rem;
+    }
+
+    section p {
+        font-size: 2rem;
+        margin: 1.5rem;
+    }
+
+    section button {
+        height: 4rem;
+        width: 8rem;
+        font-size: 1.3rem;
+        border: none;
+        margin: 1rem;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0.4rem;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #748b97;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+section button a {
+    text-decoration: none;
+
+}
+
+.one {
+    background: #014f6e;
+}
+
+.two {
+    background: #58508d;
+}
+
+.three {
+    background: #8a508f;
+}
+
+.four {
+    background: #bc5090;
+}
+
+.five {
+    background: #de5a79;
+}
+
+.six {
+    background: #ff6361;
+}
+
+.seven {
+    background: #ff8531;
+}
+
+.eight {
+    background: #ffa600;
+}
+
+#t-basic-1, #t-basic-2 {
+    padding: 0;
+    transform: translateY(1rem);
+}
+
+.tabs button {
+    margin: 0.3rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+}
+
+.btn-basic-toggle {
+    background-color: rgba(255, 184, 77, 0);
+}
+
+.get-started-button a {
+    color: white;
+    text-overflow: ellipsis;
+}
+
+.get-started-button button {
+    width: fit-content;
+    padding: 0 1rem;
+}
+
+.get-started-button button a {
+    text-decoration: none;
+}
+
+#calculus table {
+    margin-top: 2.5rem;
+}
+
+#constants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop-btn {
+    min-width: 10rem;
+    height: 3rem;
+    margin: 0.3rem;
+}
+
+.dropdown-content {
+    max-height: 15rem;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 1rem auto;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.const-btn {
+    min-width: 15rem;
+    min-height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.advanced-table button {
+    width: 9rem;
+}

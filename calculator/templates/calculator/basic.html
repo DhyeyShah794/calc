@@ -1,0 +1,59 @@
+{% extends 'calculator/navbar.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'calculator/css/basic.css' %}">
+
+<body>
+    <div>
+        <style>
+        </style>
+        <h1 class="calc-heading">Calculator</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="table-container">
+                <input type="text" id="inp" name="display" value="{{result}}"/>
+                <table class="calc-table">
+                    <caption></caption>
+                    <tr>
+                        <td><button type="button" onclick="buttonPi()">π</button></td>
+                        <td><button type="button" onclick="buttonOpenBracket()">(</button></td>
+                        <td><button type="button" onclick="buttonCloseBracket()">)</button></td>
+                        <td><button type="button" onclick="buttonDelete()">DEL</button></td>
+                        <td><button type="button" onclick="buttonClear()">AC</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonE()">e</button></td>
+                        <td><button type="button" onclick="buttonSeven()">7</button></sup></td>
+                        <td><button type="button" onclick="buttonEight()">8</button></td>
+                        <td><button type="button" onclick="buttonNine()">9</button></td>
+                        <td><button type="button" onclick="buttonDivide()">/</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonRoot()">√x</button></td>
+                        <td><button type="button" onclick="buttonFour()">4</button></td>
+                        <td><button type="button" onclick="buttonFive()">5</button></td>
+                        <td><button type="button" onclick="buttonSix()">6</button></td>
+                        <td><button type="button" onclick="buttonMultiply()">*</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonSquare()">x<sup>2</sup></button></td>
+                        <td><button type="button" onclick="buttonOne()">1</button></td>
+                        <td><button type="button" onclick="buttonTwo()">2</button></td>
+                        <td><button type="button" onclick="buttonThree()">3</button></td>
+                        <td><button type="button" onclick="buttonMinus()">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><button type="button" onclick="buttonPower()">x<sup>y</sup></button></td>
+                        <td><button type="button" onclick="buttonDecimal()">.</button></td>
+                        <td><button type="button" onclick="buttonZero()">0</button></td>
+                        <td><button>=</button></td>
+                        <td><button type="button" onclick="buttonPlus()">+</button></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+        </form>
+    </div>
+    <script type="text/javascript" src="{% static 'calculator/js/basic.js' %}"></script>
+</body>
+{% endblock %}

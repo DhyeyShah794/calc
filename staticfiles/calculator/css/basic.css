@@ -1,0 +1,71 @@
+.calc-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+#inp {
+    width: 40rem;
+    text-align: center;
+    overflow-x: scroll;
+    font-size: 1.5rem;
+    color: darkblue;
+    cursor: default;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+}
+
+.calc-table {
+    width: 35rem;
+    height: 28rem;
+    margin: 0;
+    /* border-collapse: separate; */
+}
+
+.calc-table>tr {
+    padding: 0;
+    margin: 0;
+}
+
+.calc-table>tr>td {
+    width: 2rem;
+    height: 3rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+    /* padding: 0.5rem; */
+    background-color: blue;
+    font-size: 6;
+}
+
+td>button {
+    width: 6.5rem;
+    height: 3.5rem;
+    background-color: #fff;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+    border-radius: 0px;
+}
+
+td>button:focus {
+    outline: none;
+    background-color: rgb(97, 187, 216);
+}
+
+.btn-basic-toggle{
+    background-color: rgb(255, 153, 0);
+}
