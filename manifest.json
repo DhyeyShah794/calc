@@ -1,0 +1,22 @@
+{
+  "background_color": "#ffffff",
+  "description": "Advanced scientific calculator",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "limitless-math.herokuapp",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "limitless-math.herokuapp",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": [],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "/static/images/basic.jpg",
+      "type": "image/jpeg",
+      "sizes": "550x370"
+    }
+  ],
+  "shortcuts": []
+}

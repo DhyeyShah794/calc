@@ -69,3 +69,5 @@ p{
 ::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
 }
+
+@media screen and max-width 

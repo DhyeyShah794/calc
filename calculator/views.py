@@ -31,19 +31,6 @@ def home(request):
     return render(request, 'calculator/main.html', context)
 
 
-def basic(request):
-    result = ""
-    try:
-        if request.method == "POST":
-            # get the expression from the form using name of the input field
-            exp = request.POST.get("display")
-            result = basic_res(exp)
-    except:
-        result = ""
-    context = {'result': result}
-    return render(request, 'calculator/basic.html', context)
-
-
 def user_guide(request):
     context = {}
     return render(request, 'calculator/user_guide.html', context)

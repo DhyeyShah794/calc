@@ -18,7 +18,7 @@ section {
 
 
 .calc-container {
-    background: #065c81;
+    background: #0f0d1c; 
     display: block;
 }
 
@@ -53,22 +53,34 @@ form {
 }
 
 #accuracy {
-    width: 5.6rem;
+    width: 5.5rem;
     height: 3rem;
     font-size: 1rem;
     font-weight: 650;
-    margin-right: 0.5rem;
-    border-radius: 8px;
+    margin-right: 0.2rem;
     padding: 1rem;
+    color: rgba(0, 0, 0, 0.793);
+    caret-color: red;
+    background: #f0f0f0;
+    border-radius: 1.2rem 0 0 1.2rem;
+}
+
+#accuracy:hover .tooltip{
+    display: inline-block;
 }
 
 #inp {
     width: 70%;
     height: 3rem;
-    border-radius: 8px;
     padding: 1rem;
     margin: 0;
     caret-color: red;
+    background: #f0f0f0;
+    border-radius: 0 1.2rem 1.2rem 0;
+}
+
+#inp:focus{
+    outline: none;
 }
 
 .test-text {
@@ -85,8 +97,7 @@ form {
 .submit-btn {
     width: 3rem;
     height: 3rem;
-    border-radius: 8px;
-    background: lightgreen;
+    filter: invert(100);
     color: #fff;
     margin: 0.5rem;
     padding: 0;
@@ -131,8 +142,9 @@ table {
     margin-top: 0.7rem;
 }
 
+
 button:not(.tablinks) {
-    width: 5.5rem;
+    min-width: 5.5rem;
     height: 3.5rem;
     margin: 0.01rem;
     background-color: #13122a00;
@@ -148,10 +160,17 @@ button:not(.tablinks):hover {
 
 button:not(.tablinks):active {
     border-color: #ff0000;
+    outline: none;
 }
 
 .btn-basic {
     width: 5rem;
+    height: 3.5rem;
+    margin: 0.01rem;
+    background-color: #13122a00;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.532);
+    border-radius: 3px;
 }
 
 #t-basic-2,
@@ -161,6 +180,7 @@ button:not(.tablinks):active {
 
 .btn-basic-toggle {
     width: 5rem;
+    filter: invert(100%);
     border: 1px solid rgba(255, 255, 255, 0) !important;
 }
 
@@ -175,9 +195,14 @@ button:not(.tablinks):active {
     margin-top: 2.5rem;
 }
 
-.btn-trig,
+.btn-trig {
+    width: 5.5rem;
+}
+
 .btn-trig-toggle {
     width: 5.5rem;
+    filter: invert(100%);
+    border: 1px solid rgba(255, 255, 255, 0) !important;
 }
 
 .btn-basic-toggle>img,
@@ -330,7 +355,7 @@ section button a {
 }
 
 .drop-btn {
-    min-width: 10rem;
+    width: 10.5rem;
     height: 3rem;
     margin: 0.3rem;
 }
@@ -348,13 +373,48 @@ section button a {
 }
 
 .const-btn {
-    min-width: 15rem;
+    width: 15rem;
     min-height: 3rem;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.advanced-table button {
-    width: 9rem;
+.btn-adv{
+    width: 9rem !important;
+    height: 3.5rem;
+    margin: 0.01rem;
+    background-color: #13122a00;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.532);
+    border-radius: 3px; 
+}
+
+#tab-basic:hover{
+    background: #011a6e;
+}
+
+#tab-trigonometry{
+    background: #1b698b;
+}
+
+#tab-constants{
+    background: #268e4f;
+}
+
+#tab-calculus{
+    background: #872083;
+}
+
+#tab-stats{
+    background: #891717;
+}
+
+#tab-transforms{
+    background: #ff6361;
+}
+
+#tab-advanced{
+    background: #ffd11a;
 }

@@ -11,21 +11,24 @@
             <div class="inp-container">
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input type="number" id="accuracy" name="accuracy" value="{{accuracy}}" min="0" oninput="validity.valid||(value='');"/>
+                    <div>
+                        <p class="tooltip" style="display:none">Accuracy</p>
+                        <input type="number" id="accuracy" name="accuracy" placeholder="Acc." value="{{accuracy}}" min="0" oninput="validity.valid||(value='');"/>
+                    </div>
                     <input type="text" id="inp" name="display" value="{{result}}" autofocus/>
-                    <input type="image" class="submit-btn" src="{% static 'images/arrow-right-square.svg' %}"
+                    <input type="image" class="submit-btn" src="{% static 'images/arrow-right-circle.svg' %}"
                         alt="Evaluate" />
                 </form>
 
             </div>
             <div class="tabs">
-                <button class="tablinks" onclick="openTab('basic')">Basic</button>
-                <button class="tablinks" onclick="openTab('trig')">Trigonometry</button>
-                <button class="tablinks" onclick="openTab('constants')">Constants</button>
-                <button class="tablinks" onclick="openTab('calculus')">Calculus</button>
-                <button class="tablinks" onclick="openTab('stats')">Statistics</button>
-                <button class="tablinks" onclick="openTab('transforms')">Transforms</button>
-                <button class="tablinks" onclick="openTab('advanced')">Advanced functions</button>
+                <button class="tablinks" id="tab-basic" onclick="openTab('basic')">Basic</button>
+                <button class="tablinks" id="tab-trigonometry" onclick="openTab('trig')">Trigonometry</button>
+                <button class="tablinks" id="tab-constants" onclick="openTab('constants')">Constants</button>
+                <button class="tablinks" id="tab-calculus" onclick="openTab('calculus')">Calculus</button>
+                <button class="tablinks" id="tab-stats" onclick="openTab('stats')">Statistics</button>
+                <button class="tablinks" id="tab-transforms" onclick="openTab('transforms')">Transforms</button>
+                <button class="tablinks" id="tab-advanced" onclick="openTab('advanced')">Advanced functions</button>
             </div>
             <div class="tab-content">
                 <div id="basic" style="display: none">
@@ -51,7 +54,6 @@
                             <td><button class="btn-basic" type="button" onclick="buttonMultiply()">X</button></td>
                             <td><button class="btn-basic" type="button" onclick="buttonDivide()">/</button></td>
                         </tr>
-
                         <tr>
                             <td><button class="btn-basic" type="button" onclick="buttonSeven()">7</button></td>
                             <td><button class="btn-basic" type="button" onclick="buttonEight()">8</button></td>
@@ -272,22 +274,22 @@
                 <div id="advanced" style="display: none">
                     <table class="advanced-table">
                         <tr>
-                            <td><button class="btn-calc" type="button" onclick="buttonGeneralLog()">log(x, base)</button></td>
-                            <td><button class="btn-calc" type="button" onclick="buttonFactorial()">fac(x)</button></td>
-                            <td><button class="btn-calc" type="button" onclick="buttonSuperfac()">superfac(x)</td>
-                            <td><button class="btn-calc" type="button" onclick="buttonHyperfac()">hyperfac(x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonGeneralLog()">log(x, base)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonFactorial()">fac(x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonSuperfac()">superfac(x)</td>
+                            <td><button class="btn-adv" type="button" onclick="buttonHyperfac()">hyperfac(x)</button></td>
                         </tr>
                         <tr>
-                            <td><button class="btn-calc" type="button" onclick="buttonBessel()">bessel(n, x)</button></td>
-                            <td><button class="btn-calc" type="button" onclick="buttonLegendre()">legendre(n, x)</button></td>
-                            <td><button class="btn-calc" type="button" onclick="buttonHankel1()">hankel<sup>1</sup>(n, x)</button></td>
-                            <td><button class="btn-calc" type="button" onclick="buttonHankel2()">hankel<sup>2</sup>(n, x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonBessel()">bessel(n, x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonLegendre()">legendre(n, x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonHankel1()">hankel<sup>1</sup>(n, x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonHankel2()">hankel<sup>2</sup>(n, x)</button></td>
                         </tr>
                         <tr>
-                            <td><button class="btn-calc" type="button" onclick="buttonBer()">ber(n, x)</button></td>
-                            <td><button class="btn-calc" type="button" onclick="buttonBei()">bei(n, x)</td>
-                            <td><button class="btn-calc" type="button" onclick="buttonKer()">ker(n, x)</button></td>
-                            <td><button class="btn-calc" type="button" onclick="buttonKei()">kei(n, x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonBer()">ber(n, x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonBei()">bei(n, x)</td>
+                            <td><button class="btn-adv" type="button" onclick="buttonKer()">ker(n, x)</button></td>
+                            <td><button class="btn-adv" type="button" onclick="buttonKei()">kei(n, x)</button></td>
                         </tr>
                     </table>
                 </div>
@@ -332,22 +334,14 @@
     </section>
 
     <section class="five">
-        <h1>Geometry</h1>
-        <p>Calculate area, perimeter, volume, tangents, normals, etc. of various 2D & 3D figures and plot them
-            graphically using equations or direct measurements</p>
+        <h1>Constants</h1>
+        <p>Mathematical and Physical constants</p>
         <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
     </section>
 
     <section class="six">
         <h1>Probability & Statistics</h1>
         <p>Mean, Median, Mode, Variance, Standard Deviation</p>
-        <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
-    </section>
-
-    <section class="seven">
-        <h1>Sequences & Series</h1>
-        <p>Arithmetic, geometric & harmonic series, n-bonacci sequences, series generator using initial seeds and
-            conditions</p>
         <div class="get-started-button"><button type="button" onclick=""><a href="{% url 'user-guide'%}">Get Started</a></button></div>
     </section>
 
