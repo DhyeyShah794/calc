@@ -51,7 +51,7 @@ function constDropdown(idName) {
 	}
 }
 
-const operators = ["+", "-", "x", "÷", "^"];
+const operators = ["+", "-", "×", "÷", "^"];
 
 function buttonPlus() {
 	let exp = document.getElementById("inp").value;
@@ -78,13 +78,13 @@ function buttonMinus() {
 function buttonMultiply() {
 	let exp = document.getElementById("inp").value;
 	if (exp === "") {
-		exp = "0 X ";
+		exp = "0 × ";
 	}
 	else if (operators.includes(exp.slice(-2, -1))) {
-		exp = exp.replace(exp.slice(-2, -1), "X");
+		exp = exp.replace(exp.slice(-2, -1), "×");
 	}
 	else {
-		exp = exp + " X ";
+		exp = exp + " × ";
 	}
 	document.getElementById("inp").value = exp;
 }

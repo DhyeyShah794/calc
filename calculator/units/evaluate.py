@@ -6,7 +6,7 @@ from statistics import mean, median, mode, stdev, variance, covariance
 
 
 def clean_basic(inp: str) -> str:
-    new: str = inp.replace("X", "*").replace("√(", "sqrt(").replace("pow(", "power(").replace("^", "**").replace("X", "*").replace("÷", "/")
+    new: str = inp.replace("×", "*").replace("√(", "sqrt(").replace("pow(", "power(").replace("^", "**").replace("X", "*").replace("÷", "/")
     return new
 
 
