@@ -11,10 +11,7 @@
             <div class="inp-container">
                 <form action="" method="post">
                     {% csrf_token %}
-                    <div>
-                        <p class="tooltip" style="display:none">Accuracy</p>
-                        <input type="number" id="accuracy" name="accuracy" placeholder="Digits" value="{{accuracy}}" min="0" oninput="validity.valid||(value='');"/>
-                    </div>
+                    <input type="number" id="accuracy" name="accuracy" placeholder="Digits" value="{{accuracy}}" min="0" oninput="validity.valid||(value='');"/>
                     <input type="text" id="inp" name="display" value="{{result}}" autofocus/>
                     <input type="image" class="submit-btn" src="{% static 'images/arrow-right-circle.svg' %}"
                         alt="Evaluate" />

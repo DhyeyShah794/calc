@@ -61,12 +61,26 @@ form {
     padding: 1rem;
     color: rgba(0, 0, 0, 0.793);
     caret-color: red;
-    background: #f0f0f0;
+    background: rgb(32, 35, 37);
     border-radius: 1.2rem 0 0 1.2rem;
+    border: solid darkgray 0.1rem;
+    color:lightgrey;
 }
 
 #accuracy::placeholder{
     font-size: 0.9rem;
+}
+
+#accuracy:focus{
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
 
 #inp {
@@ -75,8 +89,10 @@ form {
     padding: 1rem;
     margin: 0;
     caret-color: red;
-    background: #f0f0f0;
+    background: rgb(32, 35, 37);
     border-radius: 0 1.2rem 1.2rem 0;
+    border: solid darkgray 0.1rem;
+    color: lightgray;
 }
 
 #inp:focus{
@@ -91,7 +107,13 @@ form {
     border-radius: 50%;
     margin: 0.5rem;
     padding: 0;
+    border: solid 0.15rem rgb(69, 57, 139);
 }
+
+.submit-btn:hover{
+    background: #3b3175;
+}
+
 /* .submit-btn:active{
     filter: invert(100);
 } */
@@ -114,10 +136,16 @@ form {
 }
 
 .tablinks {
-    padding: 0.6rem;
+    padding: 0.6rem 0.7rem;
     width: auto;
     height: auto;
     font-size: 1.2rem;
+    border-radius: 0.1rem;
+    margin: 0.25rem !important;
+}
+
+.tablinks:focus{
+    outline:none;
 }
 
 .tab-content {
@@ -192,6 +220,7 @@ button:not(.tablinks):active {
 }
 
 .btn-trig-toggle {
+    border: none;
     width: 5.5rem;
     filter: invert(100%);
 }
@@ -395,31 +424,31 @@ section button a {
 }
 
 #tab-basic:hover{
-    background: #b6bbff;
+    background: #5647ae;
 }
 
 #tab-trigonometry:hover{
-    background: #ccfffd;
+    background: #5647ae;
 }
 
 #tab-constants:hover{
-    background: #b1ffab;
+    background: #5647ae;
 }
 
 #tab-calculus:hover{
-    background: #fce09f;
+    background: #5647ae;
 }
 
 #tab-stats:hover{
-    background: #fcc39d;
+    background: #5647ae;
 }
 
 #tab-transforms:hover{
-    background: #fc9898;
+    background: #5647ae;
 }
 
 #tab-advanced:hover{
-    background: #fdb6ff;
+    background: #5647ae;
 }
 
 button {
